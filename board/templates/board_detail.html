@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block content %}
+<div class="row mt-5">
+  <div class="col-12">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        value="{{ board.title }}"
+        readonly
+      />
+      <label for="contents">Contents</label>
+      <textarea class="form-control" readonly>{{ board.contents }}</textarea>
+      <label for="tags">태그</label>
+      <span id="tags" class="form-control">
+        {{ board.tags.all | join:", "}}
+      </span>
+    </div>
+    <button class="btn btn-primary" onclick="location.href='/board/list/'">
+      Back
+    </button>
+  </div>
+</div>
+{% endblock %}
